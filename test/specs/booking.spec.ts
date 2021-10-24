@@ -4,9 +4,8 @@ import ModalPage from '../pageobjects/modal.page';
 import GuestsPage from '../pageobjects/guests.page';
 import ResultPage from '../pageobjects/result.page';
 
-//TODO: смени низвание
-describe('Booking test case', () => {
-    it('should have result', async () => {
+describe('Booking.com search result', () => {
+    it('should have result with described parameters', async () => {
         await BookingPage.open();
 
         await BookingPage.acceptCookiesButton.click();
@@ -37,11 +36,8 @@ describe('Booking test case', () => {
         await BookingPage.purposeCheckbox.click();
         await BookingPage.searchButton.click();
 
-        //норм ассерт
         var resultIndex = await ResultPage.getResult(8.0, 50);
         expect(resultIndex).toBeGreaterThan(-1)
-
-
     });
 });
 
